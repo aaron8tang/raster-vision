@@ -90,7 +90,6 @@ class SemanticSegmentationRasterStore(ActivateMixin, LabelStore):
         dtype = np.uint8
         if self.class_trans:
             band_count = 3
-            dtype = np.uint8
 
         # https://github.com/mapbox/rasterio/blob/master/docs/quickstart.rst
         # https://rasterio.readthedocs.io/en/latest/topics/windowed-rw.html
