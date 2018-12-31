@@ -4,13 +4,12 @@ import rasterio
 import rastervision as rv
 from rastervision.utils.files import (get_local_path, make_dir, upload_or_copy,
                                       file_exists)
-from rastervision.data import ActivateMixin
 from rastervision.data.label import SemanticSegmentationLabels
 from rastervision.data.label_store import LabelStore
 from rastervision.data.label_source import SegmentationClassTransformer
 
 
-class SemanticSegmentationRasterStore(ActivateMixin, LabelStore):
+class SemanticSegmentationRasterStore(LabelStore):
     """A prediction label store for segmentation raster files.
     """
 
@@ -45,12 +44,6 @@ class SemanticSegmentationRasterStore(ActivateMixin, LabelStore):
         if self.source is not None:
             return [self.source]
         return []
-
-    def _activate(self):
-        pass
-
-    def _deactivate(self):
-        pass
 
     def get_labels(self, chip_size=1000):
         """Get all labels.
